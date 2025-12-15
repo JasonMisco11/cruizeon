@@ -62,9 +62,9 @@ export default function Nav() {
           className="flex shrink-0"
         >
           <a href="#" className="text-2xl font-bold font-sans">
-            <span className="text-neutral-400">Unlimited</span>
+            <span className="text-neutral-400">Cruize</span>
             {/* CSS FIX applied here */}
-            <span className="text-[var(--prime-color)]">Solutions</span>
+            <span className="text-[var(--prime-color)]">Automobile</span>
           </a>
         </motion.div>
 

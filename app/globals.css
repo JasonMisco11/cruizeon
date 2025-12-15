@@ -1,48 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap'); 
-
 @import "tailwindcss"; 
-
 @import "tw-animate-css"; 
 
 @custom-variant dark (&:is(.dark *));
 
-* {
-  scroll-behavior: smooth;
-}
-
-/* USS color: --prime-color: #47e3ff; */
+/* =========================================
+   CRUIZEON BRANDING & THEME VARIABLES
+   ========================================= */
 :root {
-  --prime-color: #3b82f6;
-  --prime-light: #fb9e3a8a;
+  /* 1. BRAND COLORS (The "Engine" of your design) */
+  --cruize-blue: #182A52;
+  --cruize-red: #B92228;
+
+  /* 2. MAPPING TO UI COMPONENTS */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+
+  /* Primary = Navy Blue */
+  --primary: var(--cruize-blue); 
+  --primary-foreground: #ffffff;
+  
+  /* Secondary = Racing Red */
+  --secondary: var(--cruize-red);
+  --secondary-foreground: #ffffff;
+
+  /* Legacy variable support for your specific nav-links */
+  --prime-color: var(--cruize-blue); 
+  --prime-light: #fb9e3a8a; 
   --white-color: #fff;
+
+  /* Fonts & Radius */
   --Unbounded: 'Unbounded', sans-serif;
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(34.846% 0.00004 271.152);
+
+  /* UI Accents (Cards, Popovers, Inputs) */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
+  
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: var(--cruize-blue); /* Ring focus color matches brand */
+  
+  /* Charts (Optional) */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Sidebar */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: var(--cruize-blue);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -50,110 +67,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.Unbounded {
-  font-family: var(--Unbounded) !important;
-}
-
-body {
-  color: var(--white-color);
-  overflow-x:hidden;
-}
-
-.nav-links{
-  position: relative;
-}
-
-.nav-links::after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--prime-color);
-  transition: 0.4s;
-}
-
-.nav-links::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--prime-color);
-  transition: 0.4s;
-}
-
-.nav-links:hover::after,
-.nav-links:hover::before{
-  width: 100%;
-
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); } /* Changed to -100% for smoother loop */
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content; /* Ensures the container fits the content width */
-  animation: marquee 30s linear infinite;
-}
-
-/* Pause animation on hover (optional, nice for UX) */
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
- 
-  @keyframes scroll {
-    to {
-      transform: translate(calc(-50% - 0.5rem));
-    }
-  }
-}
-
-
-
+/* Dark Mode Overrides */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -161,10 +75,14 @@ body {
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  
+  /* In dark mode, we might want to keep brand colors or slightly lighten them */
+  --primary: #253C6E; /* Slightly lighter navy for visibility */
+  --primary-foreground: oklch(0.985 0 0);
+  
+  --secondary: var(--cruize-red);
   --secondary-foreground: oklch(0.985 0 0);
+  
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
@@ -173,24 +91,123 @@ body {
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
 }
 
-@import "tailwindcss";
+/* =========================================
+   TAILWIND THEME CONFIG (V4 SYNTAX)
+   ========================================= */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  /* This connects 'bg-primary' to your Navy Blue variable */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  /* This connects 'bg-secondary' to your Red variable */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Chart Colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Sidebar Colors */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Animation */
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
 
+/* =========================================
+   CUSTOM STYLES & UTILITIES
+   ========================================= */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+.Unbounded {
+  font-family: var(--Unbounded) !important;
+}
+
+/* Navbar Hover Effect using Brand Color */
+.nav-links {
+  position: relative;
+}
+
+.nav-links::after,
+.nav-links::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--prime-color); /* Now strictly Navy Blue */
+  transition: 0.4s;
+}
+
+.nav-links::after { bottom: 0; left: 0; }
+.nav-links::before { top: 0; right: 0; }
+
+.nav-links:hover::after,
+.nav-links:hover::before {
+  width: 100%;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
 
 @keyframes spotlight {
   0% {
@@ -202,7 +219,6 @@ body {
     transform: translate(-50%, -40%) scale(1);
   }
 }
-
 
 @layer base {
   * {

@@ -23,8 +23,8 @@ export default function Footer() {
           {/* COLUMN 1: Brand & Slogan */}
           <div className="space-y-4">
             <Link href="/" className="text-2xl font-bold font-sans block">
-              <span className="text-neutral-400">Unlimited</span>
-              <span className="text-(--prime-color)]">Solutions</span>
+              <span className="text-neutral-400">Cruize</span>
+              <span className="text-(--prime-color)">Automobile</span>
             </Link>
             <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
               Bridging the gap between global markets and your doorstep in Ghana. Safe, fast, and reliable logistics for individuals and businesses.
@@ -88,7 +88,7 @@ export default function Footer() {
         {/* BOTTOM SECTION: Copyright */}
         <div className="border-t border-neutral-200 dark:border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
           <p>
-            &copy; {currentYear} Unlimited Solutions. All rights reserved.
+            &copy; {currentYear} Cruize Automobile. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Privacy Policy</a>

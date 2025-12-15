@@ -40,7 +40,7 @@ export default function FAQ() {
             Frequently Asked <span className="text-(--prime-color)">Questions</span>
           </h2>
           <p className="text-neutral-600 dark:text-neutral-400">
-            Everything you need to know about shipping with Unlimited Solutions.
+            Everything you need to know about shipping with Cruize Automobile.
           </p>
         </div>
 

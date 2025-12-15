@@ -15,7 +15,7 @@ export default function WhyUs() {
         {/* Header */}
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold text-black dark:text-white mb-6">
-            Why choose <span className="text-(--prime-color)">Unlimited Solutions?</span>
+            Why choose <span className="text-(--prime-color)">Cruize Automobile?</span>
           </h2>
           <p className="text-neutral-600 dark:text-neutral-400 text-lg">
             We handle the headache of customs, clearing, and delivery so you can just shop.
